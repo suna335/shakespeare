@@ -1,5 +1,26 @@
 @use 'init-settings'as *;
 
+@include phone {
+	.glnav-close {
+		background: #000;
+		height: 100vh;
+		right: 0;
+		opacity: 0;
+		position: fixed;
+		top: 0;
+		transition: all 0.6s;
+		width: 100vw;
+		visibility: hidden;
+	}
+
+	.no-scroll {
+		.glnav-close {
+			opacity: 0.8;
+			visibility: visible;
+		}
+	}
+}
+
 .Header {
 
 	// スマホ用グローバルナビゲーション
@@ -32,13 +53,18 @@
 		}
 
 		@include phone {
-			position: fixed;
-			height: calc(100% - 80px);
-			width: calc(100% - 80px);
-			transition: left 0.5s;
-			background: rgba(195, 195, 195, 0.9);
-			// visibility: visible;
+			position: absolute;
 			visibility: hidden;
+
+			.glnav-content-showing {
+				position: fixed;
+				height: calc(100% - 200px);
+				width: calc(100% - 80px);
+				transition: left 0.5s;
+				background: #fff;
+				z-index: 100;
+				visibility: visible;
+			}
 
 			.glnav-list {
 				flex-direction: column;
