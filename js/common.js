@@ -1,5 +1,5 @@
 let page = document.querySelector('.page');
-let body = document.querySelector('body');
+let body = document.querySelector('.sbody');
 let hamBtn = document.querySelector('.hamburger-btn');
 let nav = document.querySelector('.glnav');
 let navClose = document.querySelector('.glnav-close');

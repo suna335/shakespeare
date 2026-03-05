@@ -1,33 +1,54 @@
-@use 'init-settings'as *;
+@use 'settings'as *;
 
-.Header {
+.sheader {
 
 	// グローバルナビゲーション
 	.glnav {
+
+		// 横並び
 		.glnav-list {
 			display: flex;
 		}
 
+		// すべて隠す
 		@include phone {
 			position: absolute;
 			visibility: hidden;
-
-			.glnav-list {
-				flex-direction: column;
-			}
 		}
 	}
 
 	@include phone {
+
+		// グローバルナビゲーション表示時
 		.glnav-showing {
 			position: fixed;
 			height: calc(100% - 200px);
 			width: calc(100% - 80px);
 			max-width: 300px;
+			top: 0;
+			left: 0;
 			transition: left 0.5s;
 			background: #fff;
 			z-index: 100;
 			visibility: visible;
+
+			.logo {
+				padding: .5rem 1rem;
+			}
+
+			.glnav-list {
+				padding: 0 1rem;
+			}
+
+			.glnav-item {
+				width: calc(100% - 8px);
+			}
+
+			.glnav-link {
+				padding: .5rem 0;
+				display: flex;
+			}
+
 		}
 	}
 
@@ -48,7 +69,7 @@
 			@include phone {
 				display: block;
 				position: absolute;
-				top: 0;
+				top: .5rem;
 				left: 4rem;
 			}
 		}
@@ -74,7 +95,7 @@
 	}
 }
 
-.Main {
+.smain {
 	padding: 0;
 
 	@include phone {
@@ -82,5 +103,5 @@
 	}
 }
 
-// .Footer {
+// .sfooter {
 // }
