@@ -1,29 +1,37 @@
 @use 'init-settings'as *;
 
-@include phone {
-	.glnav-close {
-		background: #000;
-		height: 100vh;
-		right: 0;
-		opacity: 0;
-		position: fixed;
-		top: 0;
-		transition: all 0.6s;
-		width: 100vw;
-		visibility: hidden;
+.Header {
+
+	// グローバルナビゲーション
+	.glnav {
+		.glnav-list {
+			display: flex;
+		}
+
+		@include phone {
+			position: absolute;
+			visibility: hidden;
+
+			.glnav-list {
+				flex-direction: column;
+			}
+		}
 	}
 
-	.no-scroll {
-		.glnav-close {
-			opacity: 0.8;
+	@include phone {
+		.glnav-showing {
+			position: fixed;
+			height: calc(100% - 200px);
+			width: calc(100% - 80px);
+			max-width: 300px;
+			transition: left 0.5s;
+			background: #fff;
+			z-index: 100;
 			visibility: visible;
 		}
 	}
-}
 
-.Header {
-
-	// スマホ用グローバルナビゲーション
+	// スマホ用ボタン
 	.glnav-hamburger {
 		.hamburger-btn {
 			display: none;
@@ -44,31 +52,24 @@
 				left: 4rem;
 			}
 		}
-
 	}
+}
 
-	.glnav {
-		.glnav-list {
-			display: flex;
-		}
+// スマホ用グローバルナビゲーション表示時のbody
+@include phone {
+	.no-scroll {
+		overflow: hidden;
 
-		@include phone {
-			position: absolute;
-			visibility: hidden;
-
-			.glnav-content-showing {
-				position: fixed;
-				height: calc(100% - 200px);
-				width: calc(100% - 80px);
-				transition: left 0.5s;
-				background: #fff;
-				z-index: 100;
-				visibility: visible;
-			}
-
-			.glnav-list {
-				flex-direction: column;
-			}
+		.glnav-close {
+			background: #000;
+			width: 100%;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			display: block;
+			opacity: 0.8;
+			transition: all 0.6s;
 		}
 	}
 }

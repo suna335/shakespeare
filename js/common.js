@@ -1,37 +1,33 @@
+let page = document.querySelector('.page');
 let body = document.querySelector('body');
 let hamBtn = document.querySelector('.hamburger-btn');
-let navCon = document.querySelector('.glnav-content');
+let nav = document.querySelector('.glnav');
 let navClose = document.querySelector('.glnav-close');
 
+// グローバルナビゲーションの表示と非表示
 function glnavShowing() {
-    navCon.classList.replace('glnav-content', 'glnav-content-showing');
-    // gnavCon.setAttribute('aria-expanded', 'false');
-    // gnavCon.setAttribute("aria-hidden", "true");
-    body.classList.replace('scroll', 'no-scroll');
-    navClose.addEventListener("click", function () {
-        navCon.classList.replace('glnav-content-showing', 'glnav-content');
-        body.classList.replace('no-scroll', 'scroll');
-    });
+    nav.classList.replace('glnav', 'glnav-showing');
+    page.classList.add('no-scroll');
+    body.classList.add('no-scroll');
+
+    navClose.addEventListener("click", glnavclosing);
 }
-    hamBtn.addEventListener('click', glnavShowing);
 
-    // function funcClose(btn) {
-    //       btn.setAttribute('aria-expanded', 'false');
-    //       btn.setAttribute('aria-hidden', 'true');
-    // }
+function glnavclosing() {
+    nav.classList.replace('glnav-showing', 'glnav');
+    page.classList.remove('no-scroll');
+    body.classList.remove('no-scroll');
+}
+hamBtn.addEventListener('click', glnavShowing);
 
-    // glnavBtn.addEventListener("click", setAriaHidden);
 
-    // // 背景クリック時
-    // glnavBtn.addEventListener('click', function () {
+// 画面幅が750px以下に変更された時、グローバルナビゲーションを閉じる
+const mql = window.matchMedia('(max-width: 750px)');
+const initNav = function () {
+    glnavclosing();
+};
+mql.addEventListener('change', initNav);
 
-    //   funcClose(glnavBtn);
 
-    //   if (!flgPc) {
-    //     funcClose(glnavBtn);
-    //     document.body.style.overflow = 'visible';
-    //   }
-    // });
-
-    // テスト用
-    // alert('ボタンがクリックされました');
+// テスト用
+// alert('ボタンがクリックされました');
