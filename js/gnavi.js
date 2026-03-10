@@ -4,13 +4,8 @@ const body = document.querySelector(".body");
 const hamBtn = document.querySelector(".hamburger-btn");
 const nav = document.querySelector(".gnav");
 const navClose = document.querySelector(".gnav-close");
-
 // scroll判定
 let pos = 0;
-// ページ最下部判定
-const bodyHeight = document.body.clientHeight; // bodyの高さ
-const windowHeight = window.innerHeight; // windowの高さ
-const bottomPoint = bodyHeight - windowHeight;
 
 // グローバルナビゲーションの表示と非表示
 function gnavShowing() {
@@ -34,9 +29,14 @@ width.addEventListener("change", gnavclosing);
 
 // ナビ追従
 function handleScroll() {
+  // ページ最下部判定
+  let bodyHeight = document.body.clientHeight; // bodyの高さ
+  let windowHeight = window.innerHeight; // windowの高さ
+  let bottomPoint = Math.floor(bodyHeight - windowHeight);
+
   // 上にスクロールしたとき
   // ページ底ではGナビ出さない
-  if (pos != 0 && window.scrollY < pos && bottomPoint > pos + 150) {
+  if (pos != 0 && window.scrollY < pos && bottomPoint > pos + 100) {
     headerBar.classList.remove("hide");
 
     // トップ判定（0にならない誤差対策でひとまず2）
@@ -52,4 +52,4 @@ function handleScroll() {
   pos = Math.floor(window.scrollY);
 }
 
-window.addEventListener("scroll", handleScroll);
+window.addEventListener("scroll", handleScroll, { passive: true });
