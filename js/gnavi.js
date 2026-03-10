@@ -29,27 +29,42 @@ width.addEventListener("change", gnavclosing);
 
 // ナビ追従
 function handleScroll() {
-  // ページ最下部判定
-  let bodyHeight = document.body.clientHeight; // bodyの高さ
-  let windowHeight = window.innerHeight; // windowの高さ
-  let bottomPoint = Math.floor(bodyHeight - windowHeight);
+  // // ページ最下部判定
+  // let bodyHeight = document.body.clientHeight; // bodyの高さ
+  // let windowHeight = window.innerHeight; // windowの高さ
+  // let bottomPoint = Math.floor(bodyHeight - windowHeight);
 
-  // 上にスクロールしたとき
-  // ページ底ではGナビ出さない
-  if (pos != 0 && window.scrollY < pos + 100 && bottomPoint > pos + 100) {
-    headerBar.classList.remove("hide");
+  if (pos != 0) {
+    // 上にスクロールしたとき
+    // ページ底ではGナビ出さない
+    // if (window.scrollY < pos && bottomPoint > pos + 100) {
+    if (window.scrollY < pos) {
+      headerBar.classList.remove("hide");
 
-    // トップ判定（0にならない誤差対策でひとまず2）
-    if (window.scrollY > 2) {
-      headerBar.classList.add("shadow");
-    } else {
+      // トップ判定（0にならない誤差対策でひとまず2）
+      if (window.scrollY > 2) {
+        headerBar.classList.add("shadow");
+      } else {
+        headerBar.classList.remove("shadow");
+      }
+    } else if (window.scrollY > 64) {
+      // 下にスクロールした時（トップ付近ではヘッダーを隠さない）
+      headerBar.classList.add("hide");
       headerBar.classList.remove("shadow");
     }
-  } else if (window.scrollY > 64) {
-    headerBar.classList.add("hide");
-    headerBar.classList.remove("shadow");
   }
-  pos = Math.floor(window.scrollY);
+  pos = window.scrollY;
+  // pos = Math.floor(window.scrollY);
 }
 
-window.addEventListener("scroll", handleScroll, { passive: true });
+window.addEventListener("scroll", handleScroll);
+
+// function debounce(func, delay) {
+//   let timer;
+//   return function (...args) {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => func.apply(this, args), delay);
+//   };
+// }
+
+// window.addEventListener("scroll", debounce(handleScroll, 100));
