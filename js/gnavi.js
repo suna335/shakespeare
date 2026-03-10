@@ -36,7 +36,7 @@ function handleScroll() {
 
   // 上にスクロールしたとき
   // ページ底ではGナビ出さない
-  if (pos != 0 && window.scrollY < pos && bottomPoint > pos + 100) {
+  if (pos != 0 && window.scrollY < pos + 100 && bottomPoint > pos + 100) {
     headerBar.classList.remove("hide");
 
     // トップ判定（0にならない誤差対策でひとまず2）
