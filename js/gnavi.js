@@ -36,7 +36,7 @@ width.addEventListener("change", gnavclosing);
 function handleScroll() {
   // 上にスクロールしたとき
   // ページ底ではGナビ出さない
-  if (window.scrollY < pos && bottomPoint >= pos + 128) {
+  if (pos != 0 && window.scrollY < pos && bottomPoint > pos + 150) {
     headerBar.classList.remove("hide");
 
     // トップ判定（0にならない誤差対策でひとまず2）
@@ -45,15 +45,11 @@ function handleScroll() {
     } else {
       headerBar.classList.remove("shadow");
     }
-  } else {
-    // 下にスクロールしたとき
-    // TOPでは消さない
-    if (window.scrollY > 64) {
-      headerBar.classList.add("hide");
-      headerBar.classList.remove("shadow");
-    }
+  } else if (window.scrollY > 64) {
+    headerBar.classList.add("hide");
+    headerBar.classList.remove("shadow");
   }
-  pos = window.scrollY;
+  pos = Math.floor(window.scrollY);
 }
 
 window.addEventListener("scroll", handleScroll);
