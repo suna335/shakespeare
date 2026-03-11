@@ -10,7 +10,7 @@ Vue.createApp({})
     <div class="bHeader">
       <!--グローバルナビゲーション-->
       <!--スマホ用-->
-      <div class="gnav-hamburger">
+      <div class="gnav-mobile">
         <div class="logo">
           <a class="logo-link" href="index.html">
             <img src="img/title.png" alt="シェイクスピアめも" width="171" height="63">
@@ -29,6 +29,9 @@ Vue.createApp({})
             <img src="img/title.png" alt="シェイクスピアめも" width="171" height="63">
           </a>
         </div>
+        <button class="hamburger-btn-close">
+            <div class="hamburger-icon-close" />
+        </button>
         <nav class="gnav-content">
           <ul class="gnav-list">
             <li class="gnav-item"><a class="gnav-link" href="fourGreatTragedies.html">四大悲劇</a></li>

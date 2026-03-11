@@ -28,8 +28,11 @@
     width: 100%;
     align-items: center;
 
-    .logo-link {
-      display: flex;
+    .logo {
+      width: auto;
+      .logo-link {
+        display: flex;
+      }
     }
 
     .gnav-content {
@@ -75,13 +78,11 @@
   }
 
   // スマホ用Ｇナビ
-  .gnav-hamburger {
+  .gnav-mobile {
     display: none;
 
     @include phone {
-      align-items: center;
       display: flex;
-      min-height: 5rem;
 
       .logo {
         display: flex;
@@ -95,6 +96,7 @@
         align-items: center;
         justify-content: center;
         position: absolute;
+        top: 0.5rem;
         right: 0.5rem;
         width: 48px;
         height: 48px;
@@ -154,6 +156,49 @@
 
       .logo {
         padding: 0.5rem 1rem;
+      }
+
+      .hamburger-btn-close {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        top: 0.5rem;
+        right: 1.4rem;
+        width: 48px;
+        height: 48px;
+        border-radius: 0.3rem;
+
+        .hamburger-icon-close {
+          display: block;
+          position: relative;
+          width: 30px;
+          height: 30px;
+
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 30px;
+            background-color: #{$color4};
+          }
+
+          &::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+
+          &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+          }
+        }
+
+        &:hover {
+          background: #{$color3};
+          cursor: pointer;
+        }
       }
 
       .gnav-list {

@@ -1,9 +1,13 @@
 const page = document.querySelector(".page");
 const headerBar = document.querySelector(".bHeader");
 const body = document.querySelector(".body");
-const hamBtn = document.querySelector(".hamburger-btn");
+
 const nav = document.querySelector(".gnav");
 const navClose = document.querySelector(".gnav-close");
+
+const hamBtn = document.querySelector(".hamburger-btn");
+const hamBtnClose = document.querySelector(".hamburger-btn-close");
+
 const width = window.matchMedia("(max-width: 750px)");
 let pos = 0;
 
@@ -13,6 +17,7 @@ function gnavShowing() {
   page.classList.add("no-scroll");
   body.classList.add("no-scroll");
 
+  hamBtnClose.addEventListener("click", gnavclosing);
   navClose.addEventListener("click", gnavclosing);
 }
 
@@ -38,7 +43,7 @@ function handleScroll() {
     } else {
       headerBar.classList.remove("shadow");
     }
-  } else if (window.scrollY > pos && window.scrollY > 64) {
+  } else if (window.scrollY > pos && window.scrollY > 70) {
     // 下にスクロールした時（トップ付近ではヘッダーを隠さない）
     headerBar.classList.add("hide");
     headerBar.classList.remove("shadow");
