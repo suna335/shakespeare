@@ -71,7 +71,10 @@ div {
   width: 100%;
   align-items: center;
 }
-.bHeader .gnav .logo-link {
+.bHeader .gnav .logo {
+  width: auto;
+}
+.bHeader .gnav .logo .logo-link {
   display: flex;
 }
 .bHeader .gnav .gnav-content {
@@ -109,51 +112,50 @@ div {
     visibility: hidden;
   }
 }
-.bHeader .gnav-hamburger {
+.bHeader .gnav-mobile {
   display: none;
 }
 @media (max-width: 750px) {
-  .bHeader .gnav-hamburger {
-    align-items: center;
+  .bHeader .gnav-mobile {
     display: flex;
-    min-height: 5rem;
   }
-  .bHeader .gnav-hamburger .logo {
+  .bHeader .gnav-mobile .logo {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
   }
-  .bHeader .gnav-hamburger .hamburger-btn {
+  .bHeader .gnav-mobile .hamburger-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
+    top: 0.5rem;
     right: 0.5rem;
     width: 48px;
     height: 48px;
     border-radius: 0.3rem;
   }
-  .bHeader .gnav-hamburger .hamburger-btn .hamburger-icon {
+  .bHeader .gnav-mobile .hamburger-btn .hamburger-icon {
     display: flex;
     width: 25px;
     height: 3px;
     background-color: #78420e;
   }
-  .bHeader .gnav-hamburger .hamburger-btn .hamburger-icon::before, .bHeader .gnav-hamburger .hamburger-btn .hamburger-icon::after {
+  .bHeader .gnav-mobile .hamburger-btn .hamburger-icon::before, .bHeader .gnav-mobile .hamburger-btn .hamburger-icon::after {
     content: "";
     position: absolute;
     width: 25px;
     height: 3px;
     background-color: #78420e;
   }
-  .bHeader .gnav-hamburger .hamburger-btn .hamburger-icon::before {
+  .bHeader .gnav-mobile .hamburger-btn .hamburger-icon::before {
     top: 13px;
   }
-  .bHeader .gnav-hamburger .hamburger-btn .hamburger-icon::after {
+  .bHeader .gnav-mobile .hamburger-btn .hamburger-icon::after {
     bottom: 13px;
   }
-  .bHeader .gnav-hamburger .hamburger-btn:hover {
+  .bHeader .gnav-mobile .hamburger-btn:hover {
     background: #9eb639;
     cursor: pointer;
   }
@@ -177,6 +179,42 @@ div {
   }
   .bHeader .gnav-showing .logo {
     padding: 0.5rem 1rem;
+  }
+  .bHeader .gnav-showing .hamburger-btn-close {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 0.5rem;
+    right: 1.4rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 0.3rem;
+  }
+  .bHeader .gnav-showing .hamburger-btn-close .hamburger-icon-close {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+  .bHeader .gnav-showing .hamburger-btn-close .hamburger-icon-close::before, .bHeader .gnav-showing .hamburger-btn-close .hamburger-icon-close::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 30px;
+    background-color: #78420e;
+  }
+  .bHeader .gnav-showing .hamburger-btn-close .hamburger-icon-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .bHeader .gnav-showing .hamburger-btn-close .hamburger-icon-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  .bHeader .gnav-showing .hamburger-btn-close:hover {
+    background: #9eb639;
+    cursor: pointer;
   }
   .bHeader .gnav-showing .gnav-list {
     flex-direction: column;
