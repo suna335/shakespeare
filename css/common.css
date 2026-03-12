@@ -71,6 +71,7 @@ div {
   display: flex;
   align-items: center;
   height: 100%;
+  transition: background 0.3s ease;
 }
 .bHeader .gnav .logo {
   display: flex;
@@ -257,21 +258,24 @@ div {
     z-index: 810;
   }
 }
+.bMain h1:first-letter {
+  font-size: 2em;
+  color: #9eb639;
+}
 .bMain .headline {
-  margin: 0 1rem 2rem 1rem;
+  margin: 0 1rem 1rem 1rem;
   padding-inline-start: 2rem;
   padding-inline-end: 0.5rem;
-  background: linear-gradient(to bottom right, #b6d149, #9eb639);
-  border-radius: 1rem;
   color: #382e43;
 }
 .bMain .box-type1 {
   display: inline-block;
   position: relative;
-  margin-left: 0.5em;
+  margin: 0.5rem 0 0 0.5rem;
   padding: 0.2rem 1.5em;
   border-top: solid 3px #78420e;
   border-bottom: solid 3px #78420e;
+  color: #382e43;
 }
 .bMain .box-type1::before, .bMain .box-type1::after {
   content: "";
@@ -299,7 +303,7 @@ div {
   display: grid;
   grid-gap: 1rem 1rem;
   grid-template-columns: repeat(12, minmax(0.5rem, 1fr));
-  padding: 2rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 .bMain .plays-list .plays-list-item {
   grid-column-end: span 3;
