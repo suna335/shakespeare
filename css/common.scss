@@ -58,7 +58,7 @@
           min-width: 4.5rem;
           margin: 0.5rem 0;
           border-right: 1px solid #{$color4};
-          &:nth-of-type(5) {
+          &:last-child {
             border-right: none;
           }
 
@@ -162,7 +162,7 @@
       0 1px 3px 1px rgba(60, 64, 67, 0.15);
     overflow: hidden;
     transform: translateZ(0);
-    transition: transform 0.35s cubic-bezier(0.24, 1, 0.32, 1);
+    transition: transform 0.3s ease;
     z-index: 820;
 
     .logo {
@@ -247,12 +247,12 @@
     opacity: 1;
 
     .gnav-close {
+      transition: background 0.3s ease;
       background: rgba(0, 0, 0, 0.8);
       width: 100%;
       position: fixed;
       top: 0;
       bottom: 0;
-      transition: all 0.2s;
       z-index: 810;
     }
   }
@@ -431,7 +431,7 @@
         height: 2px;
         position: absolute;
         transform: scale(0, 1);
-        transition: transform 0.3s;
+        transition: transform 0.3s ease;
         width: 100%;
       }
       &:hover {
@@ -564,6 +564,75 @@
           padding: 2rem 0.8rem 1rem 1rem;
           border: solid 3px #{$color4};
           border-radius: 8px;
+
+          .readmore {
+            position: relative;
+
+            .readmore-accordion {
+              position: relative;
+              height: 100px;
+              margin-bottom: 0;
+              overflow: hidden;
+              transition: height 0.7s;
+
+              &::after {
+                display: block;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(180deg, transparent, #{$color1});
+                content: "";
+              }
+            }
+
+            .readmore-label {
+              display: flex;
+              position: absolute;
+              justify-self: center;
+              padding: 0.1rem 0.5rem;
+
+              input {
+                display: none;
+              }
+
+              &:hover {
+                text-decoration: underline;
+                text-decoration-color: #{$color3};
+                text-underline-offset: 0.3rem;
+                cursor: pointer;
+              }
+
+              &::before {
+                content: "";
+                width: 20px;
+                height: 10px;
+                background-color: #{$color3};
+                clip-path: polygon(50% 10px, 0% 0%, 20px 0%);
+              }
+
+              &:has(:checked) {
+                &::before {
+                  content: "";
+                  width: 20px;
+                  height: 10px;
+                  background-color: #{$color3};
+                  clip-path: polygon(50% 0%, 0% 10px, 20px 10px);
+                }
+              }
+            }
+
+            &:has(:checked) {
+              .readmore-accordion {
+                height: auto;
+
+                &::after {
+                  display: none;
+                }
+              }
+            }
+          }
         }
       }
     }
