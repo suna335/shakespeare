@@ -73,8 +73,12 @@ button {
   border: none;
 }
 
-h1,
-div {
+h1 {
   word-break: auto-phrase;
+  overflow-wrap: anywhere;
+}
+
+p {
+  word-break: break-word;
   overflow-wrap: anywhere;
 }
