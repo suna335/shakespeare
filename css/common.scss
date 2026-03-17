@@ -574,10 +574,10 @@
               position: relative;
               margin-bottom: 0;
               overflow: hidden;
-              transition: height 0.7s;
-              height: 500px;
+              transition: max-height 0.6s;
+              max-height: 500px;
               @include tablet {
-                height: 150px;
+                max-height: 150px;
               }
 
               &::after {
@@ -641,7 +641,7 @@
 
             &:has(:checked) {
               .readmore-accordion {
-                height: auto;
+                max-height: auto;
 
                 &::after {
                   display: none;
