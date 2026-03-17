@@ -269,6 +269,11 @@
     padding-inline-start: 2rem;
     padding-inline-end: 0.5rem;
     color: #{$color5};
+
+    @include phone {
+      margin: 0;
+      padding: 0.5rem 0.5rem 1rem 1.5rem;
+    }
   }
 
   .box-type1 {

@@ -281,6 +281,12 @@ p {
   padding-inline-end: 0.5rem;
   color: #382e43;
 }
+@media (max-width: 600px) {
+  .bMain .headline {
+    margin: 0;
+    padding: 0.5rem 0.5rem 1rem 1.5rem;
+  }
+}
 .bMain .box-type1 {
   display: inline-block;
   position: relative;
