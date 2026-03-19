@@ -553,7 +553,7 @@ p {
   margin-bottom: 0;
   overflow: hidden;
   transition: height 0.6s;
-  height: 500px;
+  height: 450px;
 }
 @media (max-width: 1200px) {
   .bMain .plays-detail .plays-detail-right .plays-story .plays-story-content .readmore .readmore-accordion {
