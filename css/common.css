@@ -446,7 +446,7 @@ p {
 .bMain .plays-detail {
   display: grid;
   grid-template-columns: repeat(12, minmax(0.5rem, 1fr));
-  padding: 0 1rem;
+  padding: 1.5rem 1rem 1rem 1rem;
 }
 .bMain .plays-detail .plays-detail-left {
   grid-column-end: span 3;
