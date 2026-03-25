@@ -5,24 +5,28 @@
 }
 
 .bHeader {
+  display: block;
+  position: static;
+  top: -64px;
   height: 64px;
   min-height: 64px;
+  width: 100%;
+  z-index: 2;
   transition:
     transform 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease;
-  width: 100%;
 
   &.hide {
+    position: fixed;
+    top: 0px;
     transform: translate3d(0, -140px, 0);
   }
 
   &.shadow {
     position: fixed;
-    width: 100%;
     top: 0px;
     background: #{$color1};
-    z-index: 2;
     box-shadow:
       0 1px 2px 0 rgba(60, 64, 67, 0.3),
       0 1px 3px 1px rgba(60, 64, 67, 0.15);
