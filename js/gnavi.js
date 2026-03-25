@@ -37,13 +37,13 @@ function handleScroll() {
   if (window.scrollY < pos) {
     headerBar.classList.remove("hide");
 
-    // トップ判定（0にならない誤差対策でひとまず2）
-    if (window.scrollY > 2) {
+    // トップ判定
+    if (window.scrollY > 0) {
       headerBar.classList.add("shadow");
     } else {
       headerBar.classList.remove("shadow");
     }
-  } else if (window.scrollY > pos && window.scrollY > 70) {
+  } else if (window.scrollY > pos && window.scrollY > 64) {
     // 下にスクロールした時（トップ付近ではヘッダーを隠さない）
     headerBar.classList.add("hide");
     headerBar.classList.remove("shadow");

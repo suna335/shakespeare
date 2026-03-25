@@ -65,10 +65,8 @@ p {
   position: static;
   top: -64px;
   height: 64px;
-  min-height: 64px;
   width: 100%;
-  z-index: 2;
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s;
 }
 .bHeader.hide {
   position: fixed;
@@ -80,6 +78,7 @@ p {
   top: 0px;
   background: #d7d56f;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  z-index: 2;
 }
 .bHeader .gnav {
   display: flex;
