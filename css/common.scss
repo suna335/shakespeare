@@ -402,7 +402,6 @@
   .dash {
     height: 0.2rem;
     margin: 2rem 0;
-
     background-image:
       linear-gradient(90deg, #{$color2} 30%, transparent 30%),
       linear-gradient(90deg, #{$color3} 30%, transparent 30%);
@@ -463,7 +462,7 @@
   .plays-detail {
     display: grid;
     grid-template-columns: repeat(12, minmax(0.5rem, 1fr));
-    padding: 0 1rem;
+    padding: 1.5rem 1rem 1rem 1rem;
 
     .plays-detail-left {
       grid-column-end: span 3;
