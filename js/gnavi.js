@@ -1,9 +1,10 @@
 const page = document.querySelector(".page");
 const body = document.querySelector(".body");
-const headerBar = document.querySelector(".bHeader");
 
 const nav = document.querySelector(".gnav");
 const navClose = document.querySelector(".gnav-close");
+const navPc = document.querySelector(".gnav-pc");
+const navMobile = document.querySelector(".gnav-mobile");
 
 const hamBtn = document.querySelector(".hamburger-btn");
 const hamBtnClose = document.querySelector(".hamburger-btn-close");
@@ -28,26 +29,41 @@ function gnavclosing() {
 }
 hamBtn.addEventListener("click", gnavShowing);
 
+function reload() {
+  window.location.reload();
+}
+
 // 画面幅が広くなったらナビを閉じる
-width.addEventListener("change", gnavclosing);
+width.addEventListener("change", reload);
 
 // ナビ追従
-function handleScroll() {
-  // 上にスクロールしたとき
-  if (window.scrollY < pos) {
-    headerBar.classList.remove("hide");
-
-    // トップ判定
-    if (window.scrollY > 0) {
-      headerBar.classList.add("shadow");
-    } else {
-      headerBar.classList.remove("shadow");
-    }
-  } else if (window.scrollY > pos && window.scrollY > 64) {
-    // 下にスクロールした時（トップ付近ではヘッダーを隠さない）
-    headerBar.classList.add("hide");
-    headerBar.classList.remove("shadow");
+function handleScroll(e) {
+  if (window.scrollY < pos && window.scrollY > 64) {
+    // 上にスクロールしたとき
+    this.name.classList.remove("hide");
+    this.name.classList.add("shadow");
+  } else if (window.scrollY > pos && window.scrollY > 128) {
+    // 下にスクロールした時
+    this.name.classList.add("hide");
   }
+
+  // トップで影なし
+  if (Math.floor(window.scrollY) <= 0) {
+    this.name.classList.remove("shadow");
+  }
+
   pos = window.scrollY;
 }
-window.addEventListener("scroll", handleScroll);
+
+// 画面幅によってナビ対象変更
+if (width.matches) {
+  window.addEventListener("scroll", {
+    name: navMobile,
+    handleEvent: handleScroll,
+  });
+} else {
+  window.addEventListener("scroll", {
+    name: navPc,
+    handleEvent: handleScroll,
+  });
+}
