@@ -11,36 +11,40 @@ Vue.createApp({})
       <!--グローバルナビゲーション-->
       <!--スマホ用-->
       <div class="gnav-mobile">
-        <div class="logo">
-          <a class="logo-link" href="index.html">
-            <img src="img/title.png" alt="シェイクスピアめも" style="max-height:63px">
-          </a>
-        </div>
-        <div class="gnav-hamburger">
-            <button class="hamburger-btn" aria-haspopup="true">
-                <div class="hamburger-icon"/>
-            </button>
+        <div class="gnav-mobile-inner">
+          <div class="logo">
+            <a class="logo-link" href="index.html">
+              <img src="img/title.png" alt="シェイクスピアめも" style="max-height:63px">
+            </a>
+          </div>
+          <div class="gnav-hamburger">
+              <button class="hamburger-btn" aria-haspopup="true">
+                  <div class="hamburger-icon"/>
+              </button>
+          </div>
         </div>
       </div>
       <!--共通ナビゲーション-->
-      <div class="gnav">
-        <div class="logo">
-          <a class="logo-link" href="index.html">
-            <img src="img/title.png" alt="シェイクスピアめも" style="max-height:63px">
-          </a>
+      <div class="gnav-pc">
+        <div class="gnav">
+          <div class="logo">
+            <a class="logo-link" href="index.html">
+              <img src="img/title.png" alt="シェイクスピアめも" style="max-height:63px">
+            </a>
+          </div>
+          <button class="hamburger-btn-close">
+              <div class="hamburger-icon-close" />
+          </button>
+          <nav class="gnav-content">
+            <ul class="gnav-list">
+              <li class="gnav-item"><a class="gnav-link" href="fourGreatTragedies.html">四大悲劇</a></li>
+              <li class="gnav-item"><a class="gnav-link" href="tragedies.html">悲劇</a></li>
+              <li class="gnav-item"><a class="gnav-link" href="comedies.html">喜劇</a></li>
+              <li class="gnav-item"><a class="gnav-link" href="histories.html">史劇</a></li>
+              <li class="gnav-item"><a class="gnav-link" href="romances.html">ロマンス劇</a></li>
+            </ul>
+          </nav>
         </div>
-        <button class="hamburger-btn-close">
-            <div class="hamburger-icon-close" />
-        </button>
-        <nav class="gnav-content">
-          <ul class="gnav-list">
-            <li class="gnav-item"><a class="gnav-link" href="fourGreatTragedies.html">四大悲劇</a></li>
-            <li class="gnav-item"><a class="gnav-link" href="tragedies.html">悲劇</a></li>
-            <li class="gnav-item"><a class="gnav-link" href="comedies.html">喜劇</a></li>
-            <li class="gnav-item"><a class="gnav-link" href="histories.html">史劇</a></li>
-            <li class="gnav-item"><a class="gnav-link" href="romances.html">ロマンス劇</a></li>
-          </ul>
-        </nav>
       </div>
       <div class="gnav-close" role="button" tabindex="1"></div>
     </div>

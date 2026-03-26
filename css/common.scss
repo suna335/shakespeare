@@ -5,140 +5,171 @@
 }
 
 .bHeader {
-  display: block;
-  position: static;
-  top: -64px;
+  position: unset;
   height: 64px;
+  min-height: 64px;
   width: 100%;
-  transition: 0.3s;
 
-  &.hide {
-    position: fixed;
-    top: 0px;
-    transform: translate3d(0, -140px, 0);
-  }
-
-  &.shadow {
-    position: fixed;
-    top: 0px;
-    background: #{$color1};
-    box-shadow:
-      0 1px 2px 0 rgba(60, 64, 67, 0.3),
-      0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    z-index: 2;
-  }
-
-  // グローバルナビゲーション
-  .gnav {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    transition: background 0.3s ease;
+  // PC用グローバルナビゲーション
+  .gnav-pc {
+    display: block;
+    position: static;
+    top: -64px;
+    transition: 0.3s;
     width: 100%;
 
-    .logo {
-      display: block;
-      width: auto;
+    // 共通
+    .gnav {
+      display: flex;
+      align-items: center;
       height: 100%;
-    }
+      transition: background 0.3s ease;
+      width: 100%;
 
-    .gnav-content {
-      display: initial;
-      height: 100%;
+      .logo {
+        display: block;
+        width: auto;
+        height: 100%;
+      }
 
-      .gnav-list {
-        display: flex;
-        position: relative;
-        flex-direction: row;
+      .gnav-content {
+        display: initial;
         height: 100%;
 
-        .gnav-item {
+        .gnav-list {
           display: flex;
-          width: auto;
-          min-width: 4.5rem;
-          margin: 0.5rem 0;
-          border-right: 1px solid #{$color4};
-          &:last-child {
-            border-right: none;
-          }
+          position: relative;
+          flex-direction: row;
+          height: 100%;
 
-          .gnav-link {
+          .gnav-item {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 0 0.5rem;
-            border-radius: 0.25rem;
-            letter-spacing: 0.3px;
-            min-height: 3rem;
+            width: auto;
+            min-width: 4.5rem;
+            margin: 0.5rem 0;
+            border-right: 1px solid #{$color4};
+            &:last-child {
+              border-right: none;
+            }
 
-            &:hover {
-              background: #{$color3};
+            .gnav-link {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 100%;
+              padding: 0 0.5rem;
+              border-radius: 0.25rem;
+              letter-spacing: 0.3px;
+              min-height: 3rem;
+
+              &:hover {
+                background: #{$color3};
+              }
             }
           }
         }
       }
+
+      // すべて隠す
+      @include phone {
+        position: absolute;
+        visibility: hidden;
+      }
+    }
+    &.hide {
+      position: fixed;
+      top: 0px;
+      transform: translate3d(0, -140px, 0);
     }
 
-    // すべて隠す
-    @include phone {
-      position: absolute;
-      visibility: hidden;
+    &.shadow {
+      position: fixed;
+      top: 0px;
+      background: #{$color1};
+      box-shadow:
+        0 1px 2px 0 rgba(60, 64, 67, 0.3),
+        0 1px 3px 1px rgba(60, 64, 67, 0.15);
+      z-index: 2;
     }
   }
 
-  // スマホ用Ｇナビヘッダ
+  // スマホ用Ｇナビ
   .gnav-mobile {
-    width: 100%;
     display: none;
 
     @include phone {
-      display: flex;
+      display: block;
+      position: static;
+      top: -64px;
+      height: 64px;
+      transition: 0.3s;
+      width: 100%;
+    }
 
-      .logo {
-        display: block;
-      }
-
-      .hamburger-btn {
+    .gnav-mobile-inner {
+      @include phone {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        width: 48px;
-        height: 48px;
-        border-radius: 0.3rem;
 
-        .hamburger-icon {
+        .logo {
+          display: block;
+        }
+
+        .hamburger-btn {
           display: flex;
-          width: 25px;
-          height: 3px;
-          background-color: #{$color4};
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 0.5rem;
+          right: 0.5rem;
+          width: 48px;
+          height: 48px;
+          border-radius: 0.3rem;
 
-          &::before,
-          &::after {
-            content: "";
-            position: absolute;
+          .hamburger-icon {
+            display: flex;
             width: 25px;
             height: 3px;
             background-color: #{$color4};
+
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              width: 25px;
+              height: 3px;
+              background-color: #{$color4};
+            }
+
+            &::before {
+              top: 13px;
+            }
+
+            &::after {
+              bottom: 13px;
+            }
           }
 
-          &::before {
-            top: 13px;
+          &:hover {
+            background: #{$color3};
+            cursor: pointer;
           }
-
-          &::after {
-            bottom: 13px;
-          }
-        }
-
-        &:hover {
-          background: #{$color3};
-          cursor: pointer;
         }
       }
+    }
+    &.hide {
+      position: fixed;
+      top: 0px;
+      transform: translate3d(0, -140px, 0);
+    }
+
+    &.shadow {
+      position: fixed;
+      top: 0px;
+      background: #{$color1};
+      box-shadow:
+        0 1px 2px 0 rgba(60, 64, 67, 0.3),
+        0 1px 3px 1px rgba(60, 64, 67, 0.15);
+      z-index: 2;
     }
   }
 
@@ -462,7 +493,7 @@
   .plays-detail {
     display: grid;
     grid-template-columns: repeat(12, minmax(0.5rem, 1fr));
-    padding: 1.5rem 1rem 1rem 1rem;
+    padding: 0 1rem;
 
     .plays-detail-left {
       grid-column-end: span 3;
