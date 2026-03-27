@@ -1,8 +1,5 @@
-let className = null;
-let fileName = null;
-
 const hamlet = document.querySelector(".hamlet-story");
-const titusAndronicus = document.querySelector(".titusAndronicus-story");
+const juliusCaesar = document.querySelector(".juliusCaesar-story");
 const venice = document.querySelector(".merchantOfVenice-story");
 const henry6 = document.querySelector(".henry6-story");
 const winterTale = document.querySelector(".winterTale-story");
@@ -22,6 +19,7 @@ function accordion(e) {
 }
 
 // ページごとに必要な分だけ読み込む
+// 四大悲劇
 if (hamlet) {
   const kingLear = document.querySelector(".kingLear-story");
   const othello = document.querySelector(".othello-story");
@@ -59,17 +57,16 @@ if (hamlet) {
   });
 }
 
-if (titusAndronicus) {
-  const juliusCaesar = document.querySelector(".juliusCaesar-story");
+// その他悲劇
+if (juliusCaesar) {
+  const titusAndronicus = document.querySelector(".titusAndronicus-story");
   const romeoAndJuliet = document.querySelector(".romeoAndJuliet-story");
-  let titusCheckBox = document.querySelector(".checkbox-titusAndronicus");
   let juliusCaesarCheckBox = document.querySelector(".checkbox-juliusCaesar");
-  let romeoAndJulietCheckBox = document.querySelector(
-    ".checkbox-romeoAndJuliet",
-  );
+  let titusCheckBox = document.querySelector(".checkbox-titusAndronicus");
+  let romeJuliCheckBox = document.querySelector(".checkbox-romeoAndJuliet");
 
-  story(titusAndronicus, "titusAndronicus");
   story(juliusCaesar, "juliusCaesar");
+  story(titusAndronicus, "titusAndronicus");
   story(romeoAndJuliet, "romeoAndJuliet");
 
   titusCheckBox.addEventListener("change", {
@@ -80,19 +77,18 @@ if (titusAndronicus) {
     name: juliusCaesar,
     handleEvent: accordion,
   });
-  romeoAndJulietCheckBox.addEventListener("change", {
+  romeJuliCheckBox.addEventListener("change", {
     name: romeoAndJuliet,
     handleEvent: accordion,
   });
 }
 
+// 喜劇
 if (venice) {
   const midsummer = document.querySelector(".midsummerNightDream-story");
   const asYouLikeIt = document.querySelector(".asYouLikeIt-story");
   let veniceCheckBox = document.querySelector(".checkbox-merchantOfVenice");
-  let midsummerCheckBox = document.querySelector(
-    ".checkbox-midsummerNightDream",
-  );
+  let midSMRCheckBox = document.querySelector(".checkbox-midsummerNightDream");
   let asYouLikeItCheckBox = document.querySelector(".checkbox-asYouLikeIt");
 
   story(venice, "merchantOfVenice");
@@ -103,7 +99,7 @@ if (venice) {
     name: venice,
     handleEvent: accordion,
   });
-  midsummerCheckBox.addEventListener("change", {
+  midSMRCheckBox.addEventListener("change", {
     name: midsummer,
     handleEvent: accordion,
   });
@@ -113,6 +109,7 @@ if (venice) {
   });
 }
 
+// 史劇
 if (henry6) {
   const richard3 = document.querySelector(".richard3-story");
   let henry6CheckBox = document.querySelector(".checkbox-henry6");
@@ -131,6 +128,7 @@ if (henry6) {
   });
 }
 
+// ロマンス劇
 if (winterTale) {
   const tempest = document.querySelector(".tempest-story");
   let winterTaleCheckBox = document.querySelector(".checkbox-winterTale");

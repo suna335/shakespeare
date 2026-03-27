@@ -1,6 +1,7 @@
 const page = document.querySelector(".page");
 const body = document.querySelector(".body");
 
+const width = window.matchMedia("(max-width: 600px)"); // _settings.scssと合わせる
 const nav = document.querySelector(".gnav");
 const navClose = document.querySelector(".gnav-close");
 const navPc = document.querySelector(".gnav-pc");
@@ -9,8 +10,7 @@ const navMobile = document.querySelector(".gnav-mobile");
 const hamBtn = document.querySelector(".hamburger-btn");
 const hamBtnClose = document.querySelector(".hamburger-btn-close");
 
-const width = window.matchMedia("(max-width: 600px)");
-let pos = 0;
+let pos = 0; // スクロール制御用
 
 // グローバルナビゲーションの表示と非表示
 function gnavShowing() {
